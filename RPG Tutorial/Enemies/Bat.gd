@@ -12,6 +12,8 @@ enum { IDLE, CHASE, WANDER }
 onready var stats = $Stats
 onready var sprite = $Sprite
 onready var playerDetection = $PlayerDetection
+onready var hurtBox = $Hurtbox
+
 var knockback: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
 var state = IDLE
@@ -56,6 +58,7 @@ func _physics_process(delta):
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * KNOCKBACK
+	hurtBox.create_hit_effect()
 	
 
 func _on_Stats_no_health():

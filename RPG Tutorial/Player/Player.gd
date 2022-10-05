@@ -11,13 +11,16 @@ var state = MOVE
 var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
 var roll_vector = Vector2.DOWN
+var stats = PlayerStats
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitBox = $HitboxPivot/Hitbox
+onready var hurtBox = $Hurtbox
 
 func _ready():
+	stats.connect("no_health", self, "on_death")
 	animationTree.active = true
 	swordHitBox.knockback_vector = Vector2.ZERO
 
@@ -73,8 +76,19 @@ func roll_state(_delta: float):
 	
 func attack_animation_finished():
 	state = MOVE
+	
+func roll_animation_started():
+	hurtBox.manual_invincibility_on()
 
 func roll_animation_finished():
 	velocity *= 0.8
 	state = MOVE
+	hurtBox.manual_invincibility_off()
 
+func on_death():
+	queue_free()
+
+func _on_Hurtbox_area_entered(_area):
+	stats.health -= 1
+	hurtBox.start_invincibility(0.5)
+	hurtBox.create_hit_effect()
