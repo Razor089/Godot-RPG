@@ -10,7 +10,10 @@ const DeathEffect = preload("res://Effects/DeathEffect.tscn")
 enum { IDLE, CHASE, WANDER }
 
 onready var stats = $Stats
+onready var sprite = $Sprite
+onready var playerDetection = $PlayerDetection
 var knockback: Vector2 = Vector2.ZERO
+var velocity: Vector2 = Vector2.ZERO
 var state = IDLE
 
 func _ready():
@@ -20,11 +23,19 @@ func _ready():
 func move():
 	knockback = move_and_slide(knockback)
 
-func idle_state(delta: float):
-	pass
+func idle_state(_delta: float):
+	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * _delta)
+	if playerDetection.can_see_player():
+		state = CHASE
 
 func chase_state(_delta: float):
-	pass
+	var player = playerDetection.player
+	if player != null:
+		var desired_direction = (player.global_position - global_position).normalized()
+		velocity = velocity.move_toward(desired_direction * MAX_SPEED, ACCELERATION * _delta)
+	else:
+		state = IDLE
+	sprite.flip_h = velocity.x < 0
 
 func wander_state(_delta: float):
 	pass
@@ -39,7 +50,7 @@ func _physics_process(delta):
 			chase_state(delta)
 		WANDER:
 			wander_state(delta)
-	
+	velocity = move_and_slide(velocity)
 	
 
 func _on_Hurtbox_area_entered(area):
