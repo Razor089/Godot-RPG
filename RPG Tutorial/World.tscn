@@ -6,7 +6,7 @@
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Bat.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=11]
 [ext_resource path="res://CameraHitBox.gd" type="Script" id=12]
 
 [sub_resource type="TileSet" id=1]

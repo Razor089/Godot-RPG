@@ -10,7 +10,7 @@ const DeathEffect = preload("res://Effects/DeathEffect.tscn")
 enum { IDLE, CHASE, WANDER }
 
 onready var stats = $Stats
-var velocity: Vector2 = Vector2.ZERO
+var knockback: Vector2 = Vector2.ZERO
 var state = IDLE
 
 func _ready():
@@ -18,7 +18,7 @@ func _ready():
 	animatedSprite.play("Fly")
 
 func move():
-	velocity = move_and_slide(velocity)
+	knockback = move_and_slide(knockback)
 
 func idle_state(delta: float):
 	pass
@@ -30,7 +30,7 @@ func wander_state(_delta: float):
 	pass
 
 func _physics_process(delta):
-	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
 	move()
 	match state:
 		IDLE:
@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
-	velocity = area.knockback_vector * KNOCKBACK
+	knockback = area.knockback_vector * KNOCKBACK
 	
 
 func _on_Stats_no_health():
