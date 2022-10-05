@@ -791,13 +791,13 @@ position = Vector2( 128, 16 )
 position = Vector2( 0, 48 )
 
 [node name="Bat" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 128, 120 )
+position = Vector2( 128.53, 250.314 )
 
 [node name="Bat2" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 176, 48 )
+position = Vector2( 168, 144 )
 
 [node name="Bat3" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 248, 96 )
+position = Vector2( 246.941, 307.893 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false

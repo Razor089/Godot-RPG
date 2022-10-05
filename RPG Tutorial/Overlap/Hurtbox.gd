@@ -2,7 +2,7 @@ extends Area2D
 
 export(bool) var show = true
 
-const HitEffect = preload("res://Effects/Effect.gd")
+const HitEffect = preload("res://Effects/HitEffect.tscn")
 
 func _on_Hurtbox_area_entered(_area):
 	if show:

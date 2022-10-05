@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-const ACCELERATION = 200 
-const MAX_SPEED = 40
-const FRICTION = 200
-const KNOCKBACK = 130
+export var ACCELERATION = 200 
+export var MAX_SPEED = 40
+export var FRICTION = 200
+export var KNOCKBACK = 130
 
 const DeathEffect = preload("res://Effects/DeathEffect.tscn")
 
