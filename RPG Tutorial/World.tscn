@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=2]
@@ -6,11 +6,8 @@
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=6]
-[ext_resource path="res://World/PassageEast.gd" type="Script" id=7]
-[ext_resource path="res://World/PassageWest.gd" type="Script" id=8]
-[ext_resource path="res://World/PassageSouth.gd" type="Script" id=9]
-[ext_resource path="res://World/PassageNorth.gd" type="Script" id=10]
 [ext_resource path="res://Bat.tscn" type="PackedScene" id=11]
+[ext_resource path="res://CameraHitBox.gd" type="Script" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -806,65 +803,61 @@ position = Vector2( 248, 96 )
 visible = false
 offset = Vector2( 160, 90 )
 current = true
+script = ExtResource( 12 )
 
 [node name="PassageEast" type="Node2D" parent="Camera2D"]
 position = Vector2( 336, 88 )
-script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="PassageBox" type="Area2D" parent="Camera2D/PassageEast"]
+[node name="AreaEast" type="Area2D" parent="Camera2D/PassageEast"]
 collision_layer = 32
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PassageEast/PassageBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PassageEast/AreaEast"]
 shape = SubResource( 50 )
 
 [node name="PassageWest" type="Node2D" parent="Camera2D"]
 position = Vector2( -16, 88 )
-script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="PassageBox" type="Area2D" parent="Camera2D/PassageWest"]
+[node name="AreaWest" type="Area2D" parent="Camera2D/PassageWest"]
 collision_layer = 32
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PassageWest/PassageBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PassageWest/AreaWest"]
 shape = SubResource( 51 )
 
 [node name="PassageSouth" type="Node2D" parent="Camera2D"]
 position = Vector2( 160, -16 )
-script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="PassageBox" type="Area2D" parent="Camera2D/PassageSouth"]
+[node name="AreaNorth" type="Area2D" parent="Camera2D/PassageSouth"]
 collision_layer = 32
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PassageSouth/PassageBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PassageSouth/AreaNorth"]
 shape = SubResource( 52 )
 
 [node name="PassageNorth" type="Node2D" parent="Camera2D"]
 position = Vector2( 160, 200 )
-script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="PassageBox" type="Area2D" parent="Camera2D/PassageNorth"]
+[node name="AreaSouth" type="Area2D" parent="Camera2D/PassageNorth"]
 collision_layer = 32
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PassageNorth/PassageBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PassageNorth/AreaSouth"]
 shape = SubResource( 53 )
 
-[connection signal="area_entered" from="Camera2D/PassageEast/PassageBox" to="Camera2D/PassageEast" method="_on_PassageBox_area_entered"]
-[connection signal="body_entered" from="Camera2D/PassageEast/PassageBox" to="Camera2D/PassageEast" method="_on_PassageBox_body_entered"]
-[connection signal="body_entered" from="Camera2D/PassageWest/PassageBox" to="Camera2D/PassageWest" method="_on_PassageBox_body_entered"]
-[connection signal="body_entered" from="Camera2D/PassageSouth/PassageBox" to="Camera2D/PassageSouth" method="_on_PassageBox_body_entered"]
-[connection signal="body_entered" from="Camera2D/PassageNorth/PassageBox" to="Camera2D/PassageNorth" method="_on_PassageBox_body_entered"]
+[connection signal="body_entered" from="Camera2D/PassageEast/AreaEast" to="Camera2D" method="_on_AreaEast_body_entered"]
+[connection signal="body_entered" from="Camera2D/PassageWest/AreaWest" to="Camera2D" method="_on_AreaWest_body_entered"]
+[connection signal="body_entered" from="Camera2D/PassageSouth/AreaNorth" to="Camera2D" method="_on_AreaNorth_body_entered"]
+[connection signal="body_entered" from="Camera2D/PassageNorth/AreaSouth" to="Camera2D" method="_on_AreaSouth_body_entered"]
