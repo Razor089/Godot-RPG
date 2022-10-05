@@ -5,16 +5,42 @@ const MAX_SPEED = 40
 const FRICTION = 200
 const KNOCKBACK = 130
 
+const DeathEffect = preload("res://Effects/DeathEffect.tscn")
+
+enum { IDLE, CHASE, WANDER }
+
 onready var stats = $Stats
 var velocity: Vector2 = Vector2.ZERO
+var state = IDLE
 
 func _ready():
 	var animatedSprite = get_node("AnimatedSprite")
 	animatedSprite.play("Fly")
 
+func move():
+	velocity = move_and_slide(velocity)
+
+func idle_state(delta: float):
+	pass
+
+func chase_state(_delta: float):
+	pass
+
+func wander_state(_delta: float):
+	pass
+
 func _physics_process(delta):
 	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	velocity = move_and_slide(velocity)
+	move()
+	match state:
+		IDLE:
+			idle_state(delta)
+		CHASE:
+			chase_state(delta)
+		WANDER:
+			wander_state(delta)
+	
+	
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
@@ -22,4 +48,10 @@ func _on_Hurtbox_area_entered(area):
 	
 
 func _on_Stats_no_health():
+	create_death_effect()
 	queue_free()
+
+func create_death_effect():
+	var death_effect = DeathEffect.instance()
+	get_parent().add_child(death_effect)
+	death_effect.global_position = global_position
