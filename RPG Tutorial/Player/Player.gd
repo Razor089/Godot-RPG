@@ -20,6 +20,7 @@ onready var swordHitBox = $HitboxPivot/Hitbox
 onready var hurtBox = $Hurtbox
 
 func _ready():
+	randomize()
 	stats.connect("no_health", self, "on_death")
 	animationTree.active = true
 	swordHitBox.knockback_vector = Vector2.ZERO
