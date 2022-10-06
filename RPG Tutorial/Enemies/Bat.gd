@@ -13,6 +13,7 @@ onready var stats = $Stats
 onready var sprite = $Sprite
 onready var playerDetection = $PlayerDetection
 onready var hurtBox = $Hurtbox
+onready var softCollision = $SoftCollision
 
 var knockback: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
