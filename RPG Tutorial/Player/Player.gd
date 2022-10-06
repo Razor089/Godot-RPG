@@ -91,5 +91,5 @@ func on_death():
 
 func _on_Hurtbox_area_entered(_area):
 	stats.health -= 1
-	hurtBox.start_invincibility(0.5)
+	hurtBox.start_invincibility(2)
 	hurtBox.create_hit_effect()
