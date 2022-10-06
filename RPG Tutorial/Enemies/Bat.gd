@@ -23,7 +23,8 @@ func _ready():
 	var animatedSprite = get_node("AnimatedSprite")
 	animatedSprite.play("Fly")
 
-func move():
+func knockback_move(delta: float):
+	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
 	knockback = move_and_slide(knockback)
 
 func idle_state(_delta: float):
@@ -44,8 +45,7 @@ func wander_state(_delta: float):
 	pass
 
 func _physics_process(delta):
-	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
-	move()
+	knockback_move(delta)
 	match state:
 		IDLE:
 			idle_state(delta)
@@ -53,8 +53,11 @@ func _physics_process(delta):
 			chase_state(delta)
 		WANDER:
 			wander_state(delta)
-	velocity = move_and_slide(velocity)
+	move()
 	
+
+func move():
+	velocity = move_and_slide(velocity)
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
