@@ -1,17 +1,61 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/xbox.png" type="Texture" id=1]
+[ext_resource path="res://UI/Instructions.gd" type="Script" id=2]
+[ext_resource path="res://UI/button_press.gdshader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 3 )
+shader_param/active = false
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 15, 14, 15 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 3 )
+shader_param/active = false
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 48, 14, 14 )
 
 [node name="Instructions" type="Control"]
-margin_right = 40.0
+margin_right = 72.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+rect_scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 2 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ButtonA" type="TextureRect" parent="."]
+material = SubResource( 4 )
 margin_right = 16.0
-margin_bottom = 32.0
-texture = ExtResource( 1 )
-expand = true
-stretch_mode = 7
+margin_bottom = 16.0
+texture = SubResource( 1 )
+
+[node name="Label" type="Label" parent="ButtonA"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 68.0
+margin_bottom = 17.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Attack"
+valign = 2
+uppercase = true
+
+[node name="ButtonB" type="TextureRect" parent="."]
+material = SubResource( 5 )
+margin_top = 24.0
+margin_right = 14.0
+margin_bottom = 40.0
+texture = SubResource( 2 )
+
+[node name="Label" type="Label" parent="ButtonB"]
+margin_left = 19.0
+margin_top = 1.0
+margin_right = 60.0
+margin_bottom = 15.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "EVADE"
+valign = 2
