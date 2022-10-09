@@ -54,7 +54,7 @@ shape = SubResource( 5 )
 
 [node name="PressA" parent="." instance=ExtResource( 4 )]
 visible = false
-frame = 2
+position = Vector2( 0, 10 )
 offset = Vector2( 0, -50 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
