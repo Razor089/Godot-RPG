@@ -1330,7 +1330,7 @@ position = Vector2( 144, 296 )
 position = Vector2( 184, 264 )
 
 [node name="Slime3" parent="YSort/Slimes" instance=ExtResource( 19 )]
-position = Vector2( 176, 344 )
+position = Vector2( 176, 336 )
 
 [node name="Columns" type="YSort" parent="YSort"]
 
