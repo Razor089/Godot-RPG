@@ -1,6 +1,14 @@
 extends Control
 
+onready var label = $CenterContainer/VBoxContainer/Label
+onready var resume = $CenterContainer/VBoxContainer/Resume
+
 var is_paused = false setget set_is_paused
+
+func _ready():
+	var error = PlayerStats.connect("no_health", self, "on_game_over")
+	if error != OK:
+		print("Error!")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -18,3 +26,9 @@ func _on_Resume_button_up():
 
 func _on_TextureButton_button_up():
 	get_tree().quit()
+
+
+func on_game_over():
+	label.text = "Game Over"
+	resume.visible = false
+	self.is_paused = true

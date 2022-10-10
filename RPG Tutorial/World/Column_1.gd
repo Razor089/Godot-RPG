@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+const columnAudioPlayer = preload("res://World/ColumnAudioPlayer.tscn")
+
 onready var words = $Words
 onready var buttonA = $PressA
 onready var collision = $CollisionShape2D
@@ -16,6 +18,9 @@ func _unhandled_input(event):
 		self.is_display = true
 		buttonA.visible = false
 		GameController.add_active_column()
+		if columnAudioPlayer != null:
+			var audio_player = columnAudioPlayer.instance()
+			get_tree().current_scene.add_child(audio_player)
 
 func _on_Area2D_body_entered(_body):
 	if self.is_display == false:
