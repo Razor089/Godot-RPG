@@ -3,7 +3,7 @@
 importer="texture_atlas"
 type="Texture"
 path="res://.import/ui_big_pieces.png-2b96ed007b3a8f46f61762cdf9532ccf.res"
-group_file="res://UI/ui_big_pieces_atlas.png"
+group_file="res://UI/ui_big_pieces_atlas2.png"
 valid=true
 [deps]
 
@@ -13,5 +13,5 @@ dest_files=[ "res://.import/ui_big_pieces.png-2b96ed007b3a8f46f61762cdf9532ccf.r
 
 [params]
 
-atlas_file="res://UI/ui_big_pieces_atlas.png"
+atlas_file="res://UI/ui_big_pieces_atlas2.png"
 import_mode=0

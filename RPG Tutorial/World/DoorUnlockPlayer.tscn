@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://DoorUnlockPlayer.gd" type="Script" id=1]
+[ext_resource path="res://World/DoorUnlockPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Music and Sounds/Raise Stone Pillar Long.wav" type="AudioStream" id=2]
 
 [node name="DoorUnlockPlayer" type="AudioStreamPlayer"]

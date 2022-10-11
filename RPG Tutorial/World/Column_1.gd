@@ -13,7 +13,7 @@ func set_is_display(value):
 	is_display = value
 
 func _unhandled_input(event):
-	if entered == true && event.is_action_pressed("action"):
+	if !is_display && entered == true && event.is_action_pressed("action"):
 		words.visible = true
 		self.is_display = true
 		buttonA.visible = false
