@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Crops/carrot.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Crops/Carrot.gd" type="Script" id=2]
+[ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.54486
+height = 0.0010376
+
+[node name="Carrot" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 8, 13.5 )
+texture = ExtResource( 3 )
+
+[node name="CarrotSprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 8, 4 )
+
+[node name="AreaCarrot" type="Area2D" parent="."]
+collision_layer = 129
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCarrot"]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="AreaCarrot" to="." method="_on_AreaCarrot_body_entered"]

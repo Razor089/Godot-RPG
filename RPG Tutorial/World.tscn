@@ -1598,7 +1598,6 @@ position = Vector2( 880, 72 )
 position = Vector2( 624, 88 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
-visible = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

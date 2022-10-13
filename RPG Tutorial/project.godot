@@ -92,6 +92,7 @@ action={
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="CameraBox"
 2d_physics/layer_7="SoftCollision"
+2d_physics/layer_8="Pickable"
 
 [physics]
 
