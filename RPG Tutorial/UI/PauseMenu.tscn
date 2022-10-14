@@ -53,11 +53,11 @@ margin_right = 100.0
 margin_bottom = 69.0
 text = "Resume"
 
-[node name="TextureButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 73.0
 margin_right = 100.0
 margin_bottom = 99.0
 text = "Quit"
 
 [connection signal="button_up" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_TextureButton_button_up"]

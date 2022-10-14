@@ -14,9 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -62,6 +59,7 @@ alignment = 1
 margin_top = 15.0
 margin_right = 94.0
 margin_bottom = 41.0
+focus_neighbour_bottom = NodePath("../Quit")
 theme = ExtResource( 1 )
 text = "New Game"
 
@@ -69,6 +67,7 @@ text = "New Game"
 margin_top = 45.0
 margin_right = 94.0
 margin_bottom = 71.0
+focus_neighbour_top = NodePath("../New Game")
 theme = ExtResource( 1 )
 text = "Quit"
 

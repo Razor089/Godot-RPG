@@ -1,6 +1,10 @@
 extends Control
 
 export var first_level = preload("res://World.tscn")
+onready var newGameButton = $"CenterContainer/HBoxContainer/VBoxContainer/VBoxContainer/New Game"
+
+func _ready():
+	newGameButton.grab_focus()
 
 func _on_New_Game_button_up():
 	var error = get_tree().change_scene_to(first_level)
