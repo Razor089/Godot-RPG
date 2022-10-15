@@ -20,6 +20,7 @@ func set_is_paused(value):
 	is_paused = value
 	get_tree().paused = is_paused
 	visible = is_paused
+	resume.grab_focus()
 
 
 func _on_Resume_button_up():

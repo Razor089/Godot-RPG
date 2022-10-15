@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Foxy_Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/SteamwreckBold-e3Xp.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Player/title_image.png" type="Texture" id=4]
+[ext_resource path="res://Player/kevin-adi-pratama-forest.jpg" type="Texture" id=3]
 [ext_resource path="res://UI/TitleScreen3.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -12,8 +12,12 @@ font_data = ExtResource( 2 )
 [node name="TitleScreen3" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 180 )
 theme = ExtResource( 1 )
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -26,19 +30,23 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 180 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
-margin_left = 61.0
+margin_left = 48.0
 margin_top = 19.0
-margin_right = 259.0
+margin_right = 272.0
 margin_bottom = 160.0
+rect_min_size = Vector2( 224, 141 )
+custom_constants/separation = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
 margin_right = 94.0
 margin_bottom = 141.0
+rect_min_size = Vector2( 94, 141 )
 
 [node name="Title" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_right = 94.0
@@ -52,6 +60,7 @@ valign = 1
 margin_top = 55.0
 margin_right = 94.0
 margin_bottom = 141.0
+rect_min_size = Vector2( 94, 86 )
 size_flags_vertical = 3
 alignment = 1
 
@@ -72,10 +81,12 @@ theme = ExtResource( 1 )
 text = "Quit"
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer"]
-margin_left = 98.0
-margin_right = 198.0
+margin_left = 124.0
+margin_right = 224.0
 margin_bottom = 141.0
-texture = ExtResource( 4 )
+rect_min_size = Vector2( 100, 141 )
+texture = ExtResource( 3 )
+expand = true
 
 [connection signal="button_up" from="CenterContainer/HBoxContainer/VBoxContainer/VBoxContainer/New Game" to="." method="_on_New_Game_button_up"]
 [connection signal="button_up" from="CenterContainer/HBoxContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_Quit_button_up"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://UI/Potion.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Potion.png" type="Texture" id=1]
 [ext_resource path="res://Potion.gd" type="Script" id=2]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=3]
 

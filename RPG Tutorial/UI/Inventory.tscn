@@ -4,6 +4,11 @@
 [ext_resource path="res://UI/Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/SlotShader.gdshader" type="Shader" id=3]
 
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/empty = false
+
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
@@ -94,11 +99,6 @@ resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/empty = false
 
-[sub_resource type="ShaderMaterial" id=20]
-resource_local_to_scene = true
-shader = ExtResource( 3 )
-shader_param/empty = false
-
 [node name="Inventory" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -132,119 +132,119 @@ columns = 4
 [node name="Slot" parent="Panel/GridContainer" instance=ExtResource( 2 )]
 
 [node name="Slot2" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 2 )
+material = SubResource( 1 )
 margin_left = 24.0
 margin_right = 44.0
 
 [node name="Slot3" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 3 )
+material = SubResource( 2 )
 margin_left = 48.0
 margin_right = 68.0
 
 [node name="Slot4" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_left = 72.0
 margin_right = 92.0
 
 [node name="Slot5" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 5 )
+material = SubResource( 4 )
 margin_top = 24.0
 margin_bottom = 44.0
 
 [node name="Slot6" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 6 )
+material = SubResource( 5 )
 margin_left = 24.0
 margin_top = 24.0
 margin_right = 44.0
 margin_bottom = 44.0
 
 [node name="Slot7" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 7 )
+material = SubResource( 6 )
 margin_left = 48.0
 margin_top = 24.0
 margin_right = 68.0
 margin_bottom = 44.0
 
 [node name="Slot8" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 8 )
+material = SubResource( 7 )
 margin_left = 72.0
 margin_top = 24.0
 margin_right = 92.0
 margin_bottom = 44.0
 
 [node name="Slot9" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 9 )
+material = SubResource( 8 )
 margin_top = 48.0
 margin_bottom = 68.0
 
 [node name="Slot10" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 10 )
+material = SubResource( 9 )
 margin_left = 24.0
 margin_top = 48.0
 margin_right = 44.0
 margin_bottom = 68.0
 
 [node name="Slot11" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 11 )
+material = SubResource( 10 )
 margin_left = 48.0
 margin_top = 48.0
 margin_right = 68.0
 margin_bottom = 68.0
 
 [node name="Slot12" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 12 )
+material = SubResource( 11 )
 margin_left = 72.0
 margin_top = 48.0
 margin_right = 92.0
 margin_bottom = 68.0
 
 [node name="Slot13" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 13 )
+material = SubResource( 12 )
 margin_top = 72.0
 margin_bottom = 92.0
 
 [node name="Slot14" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 14 )
+material = SubResource( 13 )
 margin_left = 24.0
 margin_top = 72.0
 margin_right = 44.0
 margin_bottom = 92.0
 
 [node name="Slot15" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 15 )
+material = SubResource( 14 )
 margin_left = 48.0
 margin_top = 72.0
 margin_right = 68.0
 margin_bottom = 92.0
 
 [node name="Slot16" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 16 )
+material = SubResource( 15 )
 margin_left = 72.0
 margin_top = 72.0
 margin_right = 92.0
 margin_bottom = 92.0
 
 [node name="Slot17" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 17 )
+material = SubResource( 16 )
 margin_top = 96.0
 margin_bottom = 116.0
 
 [node name="Slot18" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 18 )
+material = SubResource( 17 )
 margin_left = 24.0
 margin_top = 96.0
 margin_right = 44.0
 margin_bottom = 116.0
 
 [node name="Slot19" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 19 )
+material = SubResource( 18 )
 margin_left = 48.0
 margin_top = 96.0
 margin_right = 68.0
 margin_bottom = 116.0
 
 [node name="Slot20" parent="Panel/GridContainer" instance=ExtResource( 2 )]
-material = SubResource( 20 )
+material = SubResource( 19 )
 margin_left = 72.0
 margin_top = 96.0
 margin_right = 92.0
