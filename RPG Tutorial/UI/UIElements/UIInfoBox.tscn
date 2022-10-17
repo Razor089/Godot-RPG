@@ -1,0 +1,166 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UI/UIFrame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/Steamwreck-07pd.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/UIElements/HBoxitemInfo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/UIIcons/Shield_icon.png" type="Texture" id=4]
+[ext_resource path="res://UI/UIIcons/Health_icon.png" type="Texture" id=5]
+[ext_resource path="res://UI/UIButtons/Special_icon.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/SteamwreckBoldItalic-WLBY.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 6
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 7
+font_data = ExtResource( 7 )
+
+[node name="UIInfoBox" type="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -60.0
+margin_right = 350.0
+rect_min_size = Vector2( 350, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIFrame" parent="." instance=ExtResource( 1 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 5.0
+margin_top = -25.0
+margin_right = 40.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 300, 50 )
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxTitleContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 0, 18 )
+
+[node name="NameAndTypeContainer" type="HBoxContainer" parent="VBoxContainer/VBoxTitleContainer"]
+margin_right = 300.0
+margin_bottom = 11.0
+custom_constants/separation = 8
+
+[node name="Title" type="Label" parent="VBoxContainer/VBoxTitleContainer/NameAndTypeContainer"]
+margin_right = 29.0
+margin_bottom = 11.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 1 )
+text = "Potion of Mana"
+valign = 1
+
+[node name="Type" type="Label" parent="VBoxContainer/VBoxTitleContainer/NameAndTypeContainer"]
+margin_left = 37.0
+margin_top = 1.0
+margin_right = 51.0
+margin_bottom = 9.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.623529, 0.592157, 0.592157, 1 )
+text = "(Potion)"
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/VBoxTitleContainer"]
+margin_top = 15.0
+margin_right = 300.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 1 )
+color = Color( 1, 1, 1, 0.415686 )
+
+[node name="HBoxStats" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 300.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 12 )
+
+[node name="BoxAttack" parent="VBoxContainer/HBoxStats" instance=ExtResource( 3 )]
+margin_right = 16.0
+rect_min_size = Vector2( 0, 12 )
+
+[node name="IconAttack" parent="VBoxContainer/HBoxStats/BoxAttack" index="0"]
+margin_right = 10.0
+rect_min_size = Vector2( 10, 10 )
+
+[node name="LabelAttack" parent="VBoxContainer/HBoxStats/BoxAttack" index="1"]
+margin_left = 12.0
+margin_right = 16.0
+
+[node name="BoxDefense" parent="VBoxContainer/HBoxStats" instance=ExtResource( 3 )]
+margin_left = 20.0
+margin_right = 34.0
+
+[node name="IconAttack" parent="VBoxContainer/HBoxStats/BoxDefense" index="0"]
+margin_right = 10.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 10, 10 )
+texture = ExtResource( 4 )
+
+[node name="LabelAttack" parent="VBoxContainer/HBoxStats/BoxDefense" index="1"]
+margin_left = 12.0
+margin_right = 14.0
+text = "0"
+
+[node name="BoxHealth" parent="VBoxContainer/HBoxStats" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_right = 58.0
+
+[node name="IconAttack" parent="VBoxContainer/HBoxStats/BoxHealth" index="0"]
+margin_bottom = 12.0
+texture = ExtResource( 5 )
+
+[node name="LabelAttack" parent="VBoxContainer/HBoxStats/BoxHealth" index="1"]
+margin_right = 20.0
+text = "100"
+
+[node name="HBoxTraits" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 300.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="HBoxIteminfo" parent="VBoxContainer/HBoxTraits" instance=ExtResource( 3 )]
+margin_right = 100.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="IconAttack" parent="VBoxContainer/HBoxTraits/HBoxIteminfo" index="0"]
+margin_right = 10.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 10, 10 )
+texture = ExtResource( 6 )
+
+[node name="LabelAttack" parent="VBoxContainer/HBoxTraits/HBoxIteminfo" index="1"]
+margin_left = 12.0
+margin_top = 0.0
+margin_right = 100.0
+margin_bottom = 11.0
+text = "Ogni colpo rigenera la salute dell'eroe"
+
+[node name="Details" type="Label" parent="VBoxContainer"]
+margin_top = 43.0
+margin_right = 300.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 0, 5 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.654902, 0.635294, 0.635294, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Una semplice pozione per il recupero del mana"
+
+[editable path="VBoxContainer/HBoxStats/BoxAttack"]
+[editable path="VBoxContainer/HBoxStats/BoxDefense"]
+[editable path="VBoxContainer/HBoxStats/BoxHealth"]
+[editable path="VBoxContainer/HBoxTraits/HBoxIteminfo"]

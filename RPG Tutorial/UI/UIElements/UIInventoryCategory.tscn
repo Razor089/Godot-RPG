@@ -24,6 +24,7 @@ margin_bottom = 17.0
 rect_min_size = Vector2( 20, 16 )
 texture_normal = ExtResource( 1 )
 expand = true
+stretch_mode = 5
 
 [node name="ColorRectBackground" type="ColorRect" parent="."]
 margin_top = 22.0

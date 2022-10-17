@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://World/Statue.tscn" type="PackedScene" id=17]
 [ext_resource path="res://World/TX Tileset Wall.png" type="Texture" id=18]
 [ext_resource path="res://World/Chest.tscn" type="PackedScene" id=19]
+[ext_resource path="res://UI/UIInventory.tscn" type="PackedScene" id=20]
 [ext_resource path="res://World/RoadBlock.tscn" type="PackedScene" id=21]
 
 [sub_resource type="TileSet" id=1]
@@ -1601,16 +1602,20 @@ position = Vector2( 624, 88 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="GUI" instance=ExtResource( 13 )]
-visible = false
-
-[node name="HealthUI" parent="GUI" instance=ExtResource( 7 )]
-
 [node name="Instructions" parent="GUI" instance=ExtResource( 12 )]
 margin_left = 256.0
 margin_top = 16.0
 margin_right = 336.0
 margin_bottom = 56.0
+
+[node name="HealthUI" parent="GUI" instance=ExtResource( 7 )]
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource( 13 )]
+visible = false
+
+[node name="UIInventory" parent="GUI" instance=ExtResource( 20 )]
+pause_mode = 2
+visible = false
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )

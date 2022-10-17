@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/UIElements/UICharacterItemSlot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/UIButtons/Helmet_icon.png" type="Texture" id=2]
+[ext_resource path="res://UI/UIButtons/Sword.png" type="Texture" id=3]
+[ext_resource path="res://UI/UIButtons/ShieldItem_icon.png" type="Texture" id=4]
+[ext_resource path="res://UI/UIButtons/Mail.png" type="Texture" id=5]
+
+[node name="UICharacterItemsSlot" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -31.0
+margin_right = 31.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 62, 42 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIHelmet" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -10.0
+margin_right = 10.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="UIFrame" parent="UIHelmet" index="0"]
+margin_right = -20.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="TextureHelmet" type="TextureRect" parent="UIHelmet/UIFrame/TextureRect" index="0"]
+self_modulate = Color( 0.384314, 0.384314, 0.384314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIArmor" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="UIFrame" parent="UIArmor" index="0"]
+margin_right = -20.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="TextureArmor" type="TextureRect" parent="UIArmor/UIFrame/TextureRect" index="0"]
+self_modulate = Color( 0.384314, 0.384314, 0.384314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIWeapon" parent="." instance=ExtResource( 1 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 20.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="UIFrame" parent="UIWeapon" index="0"]
+margin_right = -20.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="TextureWeapon" type="TextureRect" parent="UIWeapon/UIFrame/TextureRect" index="0"]
+self_modulate = Color( 0.384314, 0.384314, 0.384314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIShield" parent="." instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -10.0
+margin_right = 0.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="UIFrame" parent="UIShield" index="0"]
+margin_right = -20.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="TextureShield" type="TextureRect" parent="UIShield/UIFrame/TextureRect" index="0"]
+self_modulate = Color( 0.384314, 0.384314, 0.384314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="UIHelmet"]
+[editable path="UIArmor"]
+[editable path="UIWeapon"]
+[editable path="UIShield"]
