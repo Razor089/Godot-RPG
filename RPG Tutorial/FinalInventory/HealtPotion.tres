@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://FinalInventory/Item.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Potion.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Healt Potion"
+item_texture = ExtResource( 2 )

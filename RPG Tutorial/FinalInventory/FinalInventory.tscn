@@ -1,17 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Panel.png" type="Texture" id=1]
 [ext_resource path="res://FinalInventory/Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://FinalInventory/InventoryContextMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://FinalInventory/FinalInventory.gd" type="Script" id=4]
+[ext_resource path="res://FinalInventory/GridSlots.gd" type="Script" id=5]
 
 [node name="FinalInventory" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -56,89 +54,135 @@ margin_right = 132.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 130, 140 )
 columns = 4
+script = ExtResource( 5 )
+
+[node name="Slot" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Slot" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
-
 [node name="Slot2" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 34.0
 margin_right = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot3" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 68.0
 margin_right = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot4" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 102.0
 margin_right = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot5" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_top = 34.0
 margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot6" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 34.0
 margin_top = 34.0
 margin_right = 64.0
 margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot7" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 68.0
 margin_top = 34.0
 margin_right = 98.0
 margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot8" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 102.0
 margin_top = 34.0
 margin_right = 132.0
 margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot9" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_top = 68.0
 margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot10" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 34.0
 margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot11" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 68.0
 margin_top = 68.0
 margin_right = 98.0
 margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot12" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 102.0
 margin_top = 68.0
 margin_right = 132.0
 margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot13" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_top = 102.0
 margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot14" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 34.0
 margin_top = 102.0
 margin_right = 64.0
 margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot15" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 68.0
 margin_top = 102.0
 margin_right = 98.0
 margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slot16" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 102.0
 margin_top = 102.0
 margin_right = 132.0
 margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VSeparator" type="VSeparator" parent="MainBoxContainer"]
 margin_left = 134.0
@@ -147,3 +191,20 @@ margin_bottom = 140.0
 
 [node name="InventoryContextMenu" parent="." instance=ExtResource( 3 )]
 visible = false
+
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot" to="." method="_on_Slot_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot2" to="." method="_on_Slot2_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot3" to="." method="_on_Slot3_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot4" to="." method="_on_Slot4_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot5" to="." method="_on_Slot5_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot6" to="." method="_on_Slot6_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot7" to="." method="_on_Slot7_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot8" to="." method="_on_Slot8_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot9" to="." method="_on_Slot9_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot10" to="." method="_on_Slot10_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot11" to="." method="_on_Slot11_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot12" to="." method="_on_Slot12_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot13" to="." method="_on_Slot13_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot14" to="." method="_on_Slot14_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot15" to="." method="_on_Slot15_pressed"]
+[connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot16" to="." method="_on_Slot16_pressed"]
