@@ -1,8 +1,9 @@
 extends GridContainer
 
-var inventory = preload("res://FinalInventory/Inventory.tres")
+var inventory = null
 
 func _ready():
+	inventory = PlayerStats.inventory
 	inventory.connect("item_changes", self, "_on_item_changed")
 	update_inventory()
 
