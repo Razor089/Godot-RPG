@@ -1,21 +1,20 @@
 extends GridContainer
 
-var inventory = null
-
 func _ready():
-	inventory = PlayerStats.inventory
-	inventory.connect("item_changes", self, "_on_item_changed")
+	PlayerStats.inventory.connect("item_changes", self, "_on_item_changed")
 	update_inventory()
 
 func update_inventory():
-	for item_index in inventory.items.size():
+	for item_index in PlayerStats.inventory.items.size():
 		update_inventory_slot(item_index)
 
 func update_inventory_slot(item_index):
 	var inventory_slot_display = get_child(item_index)
-	var item = inventory.items[item_index]
+	var item = PlayerStats.inventory.items[item_index]
 	inventory_slot_display.display_item(item)
 
 func _on_item_changed(indexes):
+	print("item update, indexes: ", indexes)
 	for item_index in indexes:
+		print("Index: ", item_index)
 		update_inventory_slot(item_index)

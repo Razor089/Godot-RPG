@@ -5,5 +5,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Healt Potion"
+name = "Health Potion"
 item_texture = ExtResource( 2 )
+category = 0
+detail = "Una pozione che una volta bevuta, cura completamente dalle ferite subite"

@@ -1,15 +1,40 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/Panel.png" type="Texture" id=1]
 [ext_resource path="res://FinalInventory/Slot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://FinalInventory/InventoryContextMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://FinalInventory/FinalInventory.gd" type="Script" id=4]
 [ext_resource path="res://FinalInventory/GridSlots.gd" type="Script" id=5]
+[ext_resource path="res://FinalInventory/DetailControl.gd" type="Script" id=6]
+[ext_resource path="res://Fonts/SteamwreckItalic-aqmE.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Fonts/Steamwreck-07pd.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 7 )
 
 [node name="FinalInventory" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -90.0
+margin_right = 160.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 300, 160 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -57,154 +82,240 @@ columns = 4
 script = ExtResource( 5 )
 
 [node name="Slot" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_neighbour_right = NodePath("../Slot2/TextureSlot")
+focus_neighbour_bottom = NodePath("../Slot5/TextureSlot")
 
 [node name="Slot2" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 34.0
 margin_right = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_neighbour_left = NodePath("../Slot/TextureSlot")
+focus_neighbour_right = NodePath("../Slot3/TextureSlot")
+focus_neighbour_bottom = NodePath("../Slot6/TextureSlot")
 
 [node name="Slot3" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 68.0
 margin_right = 98.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_neighbour_left = NodePath("../Slot2/TextureSlot")
+focus_neighbour_right = NodePath("../Slot4/TextureSlot")
+focus_neighbour_bottom = NodePath("../Slot7/TextureSlot")
 
 [node name="Slot4" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 102.0
 margin_right = 132.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_neighbour_left = NodePath("../Slot3/TextureSlot")
+focus_neighbour_bottom = NodePath("../Slot8/TextureSlot")
+focus_next = NodePath("../Slot5/TextureSlot")
+focus_previous = NodePath("../Slot3/TextureSlot")
 
 [node name="Slot5" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_top = 34.0
 margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_neighbour_top = NodePath("../Slot/TextureSlot")
+focus_neighbour_right = NodePath("../Slot6/TextureSlot")
+focus_neighbour_bottom = NodePath("../Slot9/TextureSlot")
+focus_next = NodePath("../Slot6/TextureSlot")
+focus_previous = NodePath("../Slot4/TextureSlot")
 
 [node name="Slot6" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 34.0
 margin_top = 34.0
 margin_right = 64.0
 margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_neighbour_left = NodePath("../Slot5/TextureSlot")
+focus_neighbour_top = NodePath("../Slot2/TextureSlot")
+focus_neighbour_right = NodePath("TextureSlot")
+focus_neighbour_bottom = NodePath("../Slot10/TextureSlot")
 
 [node name="Slot7" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 68.0
 margin_top = 34.0
 margin_right = 98.0
 margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot8/TextureSlot")
+focus_previous = NodePath("../Slot6/TextureSlot")
 
 [node name="Slot8" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 102.0
 margin_top = 34.0
 margin_right = 132.0
 margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot9/TextureSlot")
+focus_previous = NodePath("../Slot7/TextureSlot")
 
 [node name="Slot9" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_top = 68.0
 margin_bottom = 98.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot10/TextureSlot")
+focus_previous = NodePath("../Slot8/TextureSlot")
 
 [node name="Slot10" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 34.0
 margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 98.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot11/TextureSlot")
+focus_previous = NodePath("../Slot9/TextureSlot")
 
 [node name="Slot11" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 68.0
 margin_top = 68.0
 margin_right = 98.0
 margin_bottom = 98.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot12/TextureSlot")
+focus_previous = NodePath("../Slot10/TextureSlot")
 
 [node name="Slot12" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 102.0
 margin_top = 68.0
 margin_right = 132.0
 margin_bottom = 98.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot13/TextureSlot")
+focus_previous = NodePath("../Slot11/TextureSlot")
 
 [node name="Slot13" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_top = 102.0
 margin_bottom = 132.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot14/TextureSlot")
+focus_previous = NodePath("../Slot12/TextureSlot")
 
 [node name="Slot14" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 34.0
 margin_top = 102.0
 margin_right = 64.0
 margin_bottom = 132.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot15/TextureSlot")
+focus_previous = NodePath("../Slot13/TextureSlot")
 
 [node name="Slot15" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 68.0
 margin_top = 102.0
 margin_right = 98.0
 margin_bottom = 132.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot16/TextureSlot")
+focus_previous = NodePath("../Slot14/TextureSlot")
 
 [node name="Slot16" parent="MainBoxContainer/ControlGrid/GridSlots" instance=ExtResource( 2 )]
 margin_left = 102.0
 margin_top = 102.0
 margin_right = 132.0
 margin_bottom = 132.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+focus_next = NodePath("../Slot/TextureSlot")
+focus_previous = NodePath("../Slot15/TextureSlot")
 
 [node name="VSeparator" type="VSeparator" parent="MainBoxContainer"]
 margin_left = 134.0
 margin_right = 138.0
 margin_bottom = 140.0
 
+[node name="DetailControl" type="Control" parent="MainBoxContainer"]
+margin_left = 142.0
+margin_right = 262.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 120, 140 )
+script = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainBoxContainer/DetailControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -70.0
+margin_right = 60.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 120, 140 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="Label" parent="MainBoxContainer/DetailControl/VBoxContainer"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+text = "Inventory"
+align = 1
+
+[node name="Title" type="Label" parent="MainBoxContainer/DetailControl/VBoxContainer"]
+margin_top = 30.0
+margin_right = 120.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="IconContainer" type="CenterContainer" parent="MainBoxContainer/DetailControl/VBoxContainer"]
+margin_top = 50.0
+margin_right = 120.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 120, 30 )
+
+[node name="IconTexture" type="TextureRect" parent="MainBoxContainer/DetailControl/VBoxContainer/IconContainer"]
+margin_left = 45.0
+margin_right = 75.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+expand = true
+
+[node name="LabelDetail" type="Label" parent="MainBoxContainer/DetailControl/VBoxContainer"]
+margin_top = 84.0
+margin_right = 120.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 120, 50 )
+custom_fonts/font = SubResource( 1 )
+text = "Test"
+autowrap = true
+
 [node name="InventoryContextMenu" parent="." instance=ExtResource( 3 )]
 visible = false
 
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot" to="." method="_on_Slot_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot" to="MainBoxContainer/DetailControl" method="_on_Slot_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot2" to="." method="_on_Slot2_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot2" to="MainBoxContainer/DetailControl" method="_on_Slot2_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot3" to="." method="_on_Slot3_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot3" to="MainBoxContainer/DetailControl" method="_on_Slot3_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot4" to="." method="_on_Slot4_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot4" to="MainBoxContainer/DetailControl" method="_on_Slot4_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot5" to="." method="_on_Slot5_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot5" to="MainBoxContainer/DetailControl" method="_on_Slot5_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot6" to="." method="_on_Slot6_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot6" to="MainBoxContainer/DetailControl" method="_on_Slot6_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot7" to="." method="_on_Slot7_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot7" to="MainBoxContainer/DetailControl" method="_on_Slot7_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot8" to="." method="_on_Slot8_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot8" to="MainBoxContainer/DetailControl" method="_on_Slot8_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot9" to="." method="_on_Slot9_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot9" to="MainBoxContainer/DetailControl" method="_on_Slot9_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot10" to="." method="_on_Slot10_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot10" to="MainBoxContainer/DetailControl" method="_on_Slot10_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot11" to="." method="_on_Slot11_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot11" to="MainBoxContainer/DetailControl" method="_on_Slot11_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot12" to="." method="_on_Slot12_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot12" to="MainBoxContainer/DetailControl" method="_on_Slot12_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot13" to="." method="_on_Slot13_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot13" to="MainBoxContainer/DetailControl" method="_on_Slot13_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot14" to="." method="_on_Slot14_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot14" to="MainBoxContainer/DetailControl" method="_on_Slot14_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot15" to="." method="_on_Slot15_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot15" to="MainBoxContainer/DetailControl" method="_on_Slot15_selected"]
 [connection signal="pressed" from="MainBoxContainer/ControlGrid/GridSlots/Slot16" to="." method="_on_Slot16_pressed"]
+[connection signal="selected" from="MainBoxContainer/ControlGrid/GridSlots/Slot16" to="MainBoxContainer/DetailControl" method="_on_Slot16_selected"]
+[connection signal="cancel" from="InventoryContextMenu" to="." method="_on_InventoryContextMenu_cancel"]
+
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot2"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot3"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot4"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot5"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot6"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot7"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot8"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot9"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot10"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot11"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot12"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot13"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot14"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot15"]
+[editable path="MainBoxContainer/ControlGrid/GridSlots/Slot16"]

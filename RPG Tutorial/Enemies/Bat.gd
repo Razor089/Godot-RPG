@@ -7,6 +7,7 @@ export var KNOCKBACK = 130
 export var WANDER_TARGET_RANGE = 4
 
 const DeathEffect = preload("res://Effects/DeathEffect.tscn")
+const Potion = preload("res://Objects/Potion.tscn")
 
 enum { IDLE, CHASE, WANDER }
 
@@ -96,12 +97,21 @@ func pick_random_state(state_list):
 
 func _on_Stats_no_health():
 	create_death_effect()
+	var num = randi() % 100 + 1
+	print("prob: ", num)
+	if num <= 15:
+		create_potion()
 	queue_free()
 
 func create_death_effect():
 	var death_effect = DeathEffect.instance()
 	get_parent().add_child(death_effect)
 	death_effect.global_position = global_position
+
+func create_potion():
+	var potion = Potion.instance()
+	get_parent().call_deferred("add_child", potion)
+	potion.global_position = global_position
 
 func _on_Hurtbox_invincible_started():
 	blinkAnimation.play("Start")

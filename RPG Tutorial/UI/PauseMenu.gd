@@ -6,6 +6,7 @@ onready var quit = $CenterContainer/VBoxContainer/Quit
 
 var is_paused = false setget set_is_paused
 
+
 func _ready():
 	var error = PlayerStats.connect("no_health", self, "on_game_over")
 	if error != OK:
