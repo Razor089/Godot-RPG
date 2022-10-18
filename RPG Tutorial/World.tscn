@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://World/Chest.tscn" type="PackedScene" id=19]
 [ext_resource path="res://UI/UIInventory.tscn" type="PackedScene" id=20]
 [ext_resource path="res://World/RoadBlock.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/Potion.tscn" type="PackedScene" id=22]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1597,6 +1598,9 @@ position = Vector2( 880, 72 )
 
 [node name="RoadBlock" parent="YSort" instance=ExtResource( 21 )]
 position = Vector2( 624, 88 )
+
+[node name="Potion" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( 240, 88 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
 
