@@ -1,31 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World/TX Props.png" type="Texture" id=1]
 [ext_resource path="res://World/TX Shadow.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 352, 206, 44, 45 )
+region = Rect2( 353, 269, 97, 72 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
-region = Rect2( 352, 174, 32, 77 )
+region = Rect2( 353, 269, 94, 72 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 15.4687, 12.199 )
-
-[node name="Cemetery_Column" type="StaticBody2D"]
-collision_mask = 0
+[node name="Altar" type="Node2D"]
 
 [node name="Shadow" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.392157 )
-position = Vector2( 8, -8 )
+position = Vector2( 6, -3 )
 texture = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -24 )
 texture = SubResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1.06067 )
-shape = SubResource( 3 )
