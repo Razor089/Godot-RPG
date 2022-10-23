@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Enemies/Slime/Idle/Sprite Sheet - Green Idle.png" type="Texture" id=1]
 [ext_resource path="res://Shadows/LargeShadow.png" type="Texture" id=2]
+[ext_resource path="res://Overlap/Hurtbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -43,6 +45,10 @@ animations = [ {
 radius = 4.625
 height = 24.5
 
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 9.40582
+height = 14.0348
+
 [node name="Slime" type="KinematicBody2D"]
 collision_layer = 16
 
@@ -54,9 +60,25 @@ texture = ExtResource( 2 )
 position = Vector2( 0, -10.125 )
 frames = SubResource( 8 )
 animation = "Animation"
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 1.25 )
 rotation = 1.5708
 shape = SubResource( 9 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -3.56762 )
+rotation = 1.5708
+shape = SubResource( 10 )
+
+[node name="Stats" parent="." instance=ExtResource( 4 )]
+max_health = 3
+
+[editable path="Hurtbox"]
