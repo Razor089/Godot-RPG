@@ -20,7 +20,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitBox = $HitboxPivot/Hitbox
 onready var hurtBox = $Hurtbox
-onready var hurtAnimation = $HurtAnimation
+onready var blinkAnimation = $BlinkAnimation
 
 func _ready():
 	randomize()

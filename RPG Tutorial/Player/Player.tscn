@@ -723,7 +723,7 @@ states/Run/node = SubResource( 38 )
 states/Run/position = Vector2( 691, 80 )
 transitions = [ "Idle", "Run", SubResource( 39 ), "Run", "Idle", SubResource( 40 ), "Run", "Attack", SubResource( 41 ), "Attack", "Run", SubResource( 42 ), "Idle", "Attack", SubResource( 43 ), "Attack", "Idle", SubResource( 44 ), "Idle", "Roll", SubResource( 45 ), "Roll", "Idle", SubResource( 46 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 0, -91.9538 )
+graph_offset = Vector2( -300.3, -175.631 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
@@ -781,7 +781,7 @@ material = SubResource( 1 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 1 )
 hframes = 60
-frame = 6
+frame = 39
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
@@ -842,7 +842,7 @@ shape = SubResource( 50 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 
-[node name="HurtAnimation" type="AnimationPlayer" parent="."]
+[node name="BlinkAnimation" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 51 )
 anims/Stop = SubResource( 52 )
 

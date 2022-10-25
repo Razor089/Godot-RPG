@@ -10,6 +10,10 @@ var deathEffect = preload("res://Effects/SlimeDeathEffect.tscn")
 onready var stats = $Stats
 onready var hurtbox = $Hurtbox
 onready var animatedSprite = $BlinkAnimation
+onready var animationTree = $AnimationTree
+
+func _ready():
+	animationTree.active = true
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage

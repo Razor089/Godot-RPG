@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Enemies/Slime/Idle/Sprite Sheet - Green Idle.png" type="Texture" id=1]
 [ext_resource path="res://Shadows/LargeShadow.png" type="Texture" id=2]
@@ -12,45 +12,55 @@ resource_local_to_scene = true
 shader = ExtResource( 6 )
 shader_param/active = false
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 96, 32 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 96, 32 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 96, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
-region = Rect2( 288, 0, 96, 32 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
-region = Rect2( 384, 0, 96, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
-region = Rect2( 480, 0, 96, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 1 )
-region = Rect2( 576, 0, 96, 32 )
-
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": true,
-"name": "Animation",
-"speed": 15.0
-} ]
-
 [sub_resource type="CapsuleShape2D" id=9]
 radius = 4.625
 height = 24.5
+
+[sub_resource type="Animation" id=24]
+resource_name = "Hurt"
+
+[sub_resource type="Animation" id=14]
+resource_name = "Idle"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
+states/Idle/node = SubResource( 23 )
+states/Idle/position = Vector2( 76.8052, 33.0325 )
+start_node = "Idle"
+graph_offset = Vector2( -521.112, -117.607 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
 
 [sub_resource type="CapsuleShape2D" id=10]
 radius = 9.40582
@@ -61,7 +71,7 @@ resource_name = "Blink"
 length = 0.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -78,7 +88,7 @@ resource_name = "Stop"
 loop = true
 step = 1.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
+tracks/0/path = NodePath("Sprite:material:shader_param/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -98,13 +108,12 @@ script = ExtResource( 5 )
 position = Vector2( 0, 1.25 )
 texture = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 11 )
 position = Vector2( 0, -10 )
-frames = SubResource( 8 )
-animation = "Animation"
-frame = 6
-playing = true
+texture = ExtResource( 1 )
+hframes = 7
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -112,7 +121,15 @@ position = Vector2( 0, 1.25 )
 rotation = 1.5708
 shape = SubResource( 9 )
 
+[node name="AnimationEnemy" type="AnimationPlayer" parent="."]
+anims/Hurt = SubResource( 24 )
+anims/Idle = SubResource( 14 )
+anims/RESET = SubResource( 15 )
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 21 )
+anim_player = NodePath("../AnimationEnemy")
+parameters/playback = SubResource( 22 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
