@@ -7,19 +7,19 @@
 [ext_resource path="res://Enemies/Slime.gd" type="Script" id=5]
 [ext_resource path="res://Shaders/white_shader.gdshader" type="Shader" id=6]
 
-[sub_resource type="ShaderMaterial" id=11]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 6 )
 shader_param/active = false
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 4.625
 height = 24.5
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=3]
 resource_name = "Hurt"
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=4]
 resource_name = "Idle"
 length = 0.7
 loop = true
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -51,22 +51,22 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeStateMachine" id=21]
-states/Idle/node = SubResource( 23 )
+[sub_resource type="AnimationNodeStateMachine" id=7]
+states/Idle/node = SubResource( 6 )
 states/Idle/position = Vector2( 76.8052, 33.0325 )
 start_node = "Idle"
 graph_offset = Vector2( -521.112, -117.607 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=9]
 radius = 9.40582
 height = 14.0348
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=10]
 resource_name = "Blink"
 length = 0.2
 loop = true
@@ -83,7 +83,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=11]
 resource_name = "Stop"
 loop = true
 step = 1.0
@@ -109,27 +109,26 @@ position = Vector2( 0, 1.25 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 11 )
+material = SubResource( 1 )
 position = Vector2( 0, -10 )
 texture = ExtResource( 1 )
 hframes = 7
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, 1.25 )
 rotation = 1.5708
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="AnimationEnemy" type="AnimationPlayer" parent="."]
-anims/Hurt = SubResource( 24 )
-anims/Idle = SubResource( 14 )
-anims/RESET = SubResource( 15 )
+anims/Hurt = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/RESET = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 21 )
+tree_root = SubResource( 7 )
 anim_player = NodePath("../AnimationEnemy")
-parameters/playback = SubResource( 22 )
+parameters/playback = SubResource( 8 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
@@ -138,14 +137,14 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -3.56762 )
 rotation = 1.5708
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
 max_health = 3
 
 [node name="BlinkAnimation" type="AnimationPlayer" parent="."]
-anims/Blink = SubResource( 12 )
-anims/Stop = SubResource( 13 )
+anims/Blink = SubResource( 10 )
+anims/Stop = SubResource( 11 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincible_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincible_ended"]

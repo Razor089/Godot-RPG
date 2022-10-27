@@ -9,7 +9,7 @@ var deathEffect = preload("res://Effects/SlimeDeathEffect.tscn")
 
 onready var stats = $Stats
 onready var hurtbox = $Hurtbox
-onready var animatedSprite = $BlinkAnimation
+onready var blinkAnimation = $BlinkAnimation
 onready var animationTree = $AnimationTree
 
 func _ready():
@@ -26,11 +26,11 @@ func create_death_effect():
 	death_effect.global_position = global_position
 
 func _on_Hurtbox_invincible_started():
-	animatedSprite.play("Blink")
+	blinkAnimation.play("Blink")
 
 
 func _on_Hurtbox_invincible_ended():
-	animatedSprite.play("Stop")
+	blinkAnimation.play("Stop")
 
 func _on_Stats_no_health():
 	create_death_effect()

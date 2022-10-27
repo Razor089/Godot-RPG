@@ -100,7 +100,7 @@ func _on_Hurtbox_area_entered(_area):
 	get_tree().current_scene.add_child(player_sound)
 
 func _on_Hurtbox_invincible_started():
-	hurtAnimation.play("Start")
+	blinkAnimation.play("Start")
 
 func _on_Hurtbox_invincible_ended():
-	hurtAnimation.play("Stop")
+	blinkAnimation.play("Stop")
