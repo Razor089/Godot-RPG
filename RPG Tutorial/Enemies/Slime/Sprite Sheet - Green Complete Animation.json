@@ -1,0 +1,43 @@
+{ "frames": {
+   "Sprite Sheet - Green Idle.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 672, "h": 32 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 672, "h": 32 },
+    "sourceSize": { "w": 672, "h": 32 },
+    "duration": 100
+   },
+   "Sprite Sheet - Green Jump Complete.aseprite": {
+    "frame": { "x": 0, "y": 32, "w": 864, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 864, "h": 160 },
+    "sourceSize": { "w": 864, "h": 160 },
+    "duration": 100
+   },
+   "Sprite Sheet - Green Hurt - No Flash.aseprite": {
+    "frame": { "x": 0, "y": 192, "w": 1056, "h": 32 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1056, "h": 32 },
+    "sourceSize": { "w": 1056, "h": 32 },
+    "duration": 100
+   },
+   "Sprite Sheet - Green Death - No Flash.aseprite": {
+    "frame": { "x": 0, "y": 224, "w": 1344, "h": 32 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1344, "h": 32 },
+    "sourceSize": { "w": 1344, "h": 32 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "Sprite Sheet - Green Complete Animation.png",
+  "format": "RGBA8888",
+  "size": { "w": 1344, "h": 256 },
+  "scale": "1"
+ }
+}

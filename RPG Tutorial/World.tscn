@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://World/Cemetery/StoneMapTileset.tres" type="TileSet" id=25]
 [ext_resource path="res://World/Cemetery/Tomb_Large.tscn" type="PackedScene" id=26]
 [ext_resource path="res://World/TX Tileset Grass.png" type="Texture" id=27]
+[ext_resource path="res://Enemies/Slime.tscn" type="PackedScene" id=28]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1186,6 +1187,20 @@ position = Vector2( 464, 80 )
 
 [node name="Bat10" parent="YSort/Bats" instance=ExtResource( 11 )]
 position = Vector2( 464, 112 )
+
+[node name="Slimes" type="YSort" parent="YSort"]
+
+[node name="Slime" parent="YSort/Slimes" instance=ExtResource( 28 )]
+position = Vector2( 1077.56, 167.412 )
+
+[node name="Slime2" parent="YSort/Slimes" instance=ExtResource( 28 )]
+position = Vector2( 1210.91, 146.81 )
+
+[node name="Slime3" parent="YSort/Slimes" instance=ExtResource( 28 )]
+position = Vector2( 1218.03, 77.1389 )
+
+[node name="Slime4" parent="YSort/Slimes" instance=ExtResource( 28 )]
+position = Vector2( 1103.04, 105.607 )
 
 [node name="Columns" type="YSort" parent="YSort"]
 

@@ -27,3 +27,12 @@ position = Vector2( 32, 40 )
 
 [node name="Slime" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 192, 88 )
+MAX_SPEED = 80
+
+[node name="Slime2" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 264, 32 )
+MAX_SPEED = 80
+
+[node name="Slime3" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 256, 136 )
+MAX_SPEED = 80
