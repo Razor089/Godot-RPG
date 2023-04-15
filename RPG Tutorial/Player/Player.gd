@@ -6,8 +6,11 @@ export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
 export var ROLL_SPEED = 125
+export(Array, StreamTexture) var Textures
 
 enum { MOVE, ROLL, ATTACK }
+enum Sprites { Foxy = 0, Lorenzo = 1 }
+export(Sprites) var Character
 
 var state = MOVE
 var velocity = Vector2.ZERO
@@ -21,12 +24,14 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitBox = $HitboxPivot/Hitbox
 onready var hurtBox = $Hurtbox
 onready var blinkAnimation = $BlinkAnimation
+onready var sprite = $Sprite
 
 func _ready():
 	randomize()
 	stats.connect("no_health", self, "on_death")
 	animationTree.active = true
 	swordHitBox.knockback_vector = Vector2.ZERO
+	sprite.texture = Textures[Character]
 
 func handle_input():
 	input_vector = Vector2.ZERO
@@ -55,6 +60,14 @@ func movement(delta: float):
 	
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+		
+	if Input.is_action_just_pressed("change_texture"):
+		if Character == Sprites.Foxy:
+			sprite.texture = Textures[Sprites.Lorenzo]
+			Character = Sprites.Lorenzo
+		elif Character == Sprites.Lorenzo:
+			sprite.texture = Textures[Sprites.Foxy]
+			Character = Sprites.Foxy
 
 func move():
 	velocity = move_and_slide(velocity)
